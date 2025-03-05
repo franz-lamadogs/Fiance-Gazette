@@ -1,26 +1,63 @@
-# Project Title: Currency Exchange Rate Analysis
+# Project Title: Currency Exchange Rate Analysis During Tariff Events
 
 ## Overview
-This project analyzes currency exchange rates and the impact of tariff events on these rates. It utilizes various data sources and visualizations to provide insights into how tariffs affect currency values.
+This project analyzes how currency exchange rates responded to the 2018 US-China trade war tariff events. It visualizes the impact of tariff announcements and implementations on major currencies, creating comprehensive analyses of exchange rate movements, correlations, and volatility patterns.
+
+## Features
+- Tracks exchange rate responses to seven key tariff events in 2018
+- Creates visualizations showing how different currencies reacted to trade tensions
+- Calculates correlation matrices between major currencies
+- Measures volatility spikes following tariff announcements
+- Generates a trade-weighted USD index
+- Produces detailed event-impact analysis for each currency
 
 ## Files
-- **gazette_feb/output/gazette.py**: The main code for analyzing currency exchange rates and the impact of tariff events. This script imports several libraries for data manipulation, visualization, and data fetching.
+- **gazette.py**: The main Python script for analyzing currency exchange rates and the impact of tariff events. This script fetches data, performs analysis, and generates visualizations.
   
-- **gazette_feb/requirements.txt**: A text file that lists all the required libraries for the project. You can install all dependencies at once using this file.
+- **requirements.txt**: A text file that lists all the required libraries for the project. You can install all dependencies at once using this file.
+
+## Data resource:
+The script attempts to fetch data from multiple sources in the following order:
+
+- Yahoo Finance API (using USDXXX=X formatted tickers)
+- Federal Reserve Economic Data (FRED)
+- Synthetic data generation (as a fallback)
+
+## Output:
+The script generates the following files in the output directory:
+
+- Individual currency exchange rate charts
+- Normalized comparison of all currencies
+- Percent change visualization
+- USD/CNY exchange rate focus chart
+- Tariff impact heatmap
+- Currency correlation matrix
+- Volatility analysis charts
+- Trade-weighted USD index
+
 
 ## Setup Instructions
-To set up the project and install the required libraries, follow these steps:
-
-1. Clone the repository or download the project files to your local machine.
-2. Navigate to the project directory in your terminal.
-3. Open the `requirements.txt` file to see the list of required libraries.
-4. Run the following command to install all the necessary libraries:
+Clone this repository to your local machine
+Create a virtual environment (optional but recommended):
 
    ```
-   pip install -r requirements.txt
+  Copypython -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
-## Libraries Used
+Install required dependencies:
+   ```
+Copypip install -r requirements.txt
+   ```
+
+Run the analysis:
+   ```
+Copypython gazette.py
+   ```
+
+Check the generated images and CSV files in the output directory
+
+## Required libraries:
 The project uses the following libraries:
 - **pandas**: For data manipulation and analysis.
 - **numpy**: For numerical operations.
@@ -29,8 +66,22 @@ The project uses the following libraries:
 - **yfinance**: For fetching financial data from Yahoo Finance.
 - **requests**: For making HTTP requests to fetch data from APIs.
 
-## Usage
-After setting up the project and installing the required libraries, you can run the `gazette.py` script to perform the analysis. The script will generate various visualizations and output files in the `output` directory.
+## Analasyed currencies
+- Chinese Yuan (CNY)
+- Euro (EUR)
+- Japanese Yen (JPY)
+- British Pound (GBP)
+- Canadian Dollar (CAD)
+- Australian Dollar (AUD)
+- Mexican Peso (MXN)
+- South Korean Won (KRW)
+- Swiss Franc (CHF)
 
-## Conclusion
-This project provides a comprehensive analysis of currency exchange rates and the effects of tariff events, offering valuable insights for financial analysis and decision-making.
+## Key Tariff Events Analyzed
+- March 22, 2018: US announces tariffs on $60B Chinese goods
+- April 2, 2018: China retaliates with tariffs on $3B US goods
+- June 15, 2018: US announces 25% tariffs on $50B Chinese goods
+- July 6, 2018: First round of 25% tariffs implemented
+- August 23, 2018: Second round of 25% tariffs implemented
+- September 17, 2018: US announces 10% tariffs on $200B Chinese goods
+- September 24, 2018: 10% tariffs on $200B implemented
